@@ -75,6 +75,9 @@ namespace UnImageObject_v2
 
                 //write to output
                 File.WriteAllText(OutField.Text, PrefabBuilder.BuildPrefab(prefab, noValidate: true));
+
+                //feedback
+                MessageBox.Show("Image successfully converted to prefab.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception exc)
             {
