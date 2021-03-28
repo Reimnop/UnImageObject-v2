@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UnImageObject_v2"
         mc:Ignorable="d"
-        Title="UnImageObject v2" Height="240" Width="640">
+        Title="UnImageObject v2" Height="200" Width="440">
     <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="8,8,8,8">
         <Grid x:Name="PathControlImg" VerticalAlignment="Top">
             <Label Content="Image" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="64" FontWeight="Medium" VerticalContentAlignment="Center" AutomationProperties.IsOffscreenBehavior="Default" Padding="5,0,0,0"/>
-            <TextBox x:Name="ImgField" Margin="64,0,68,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" UndoLimit="128" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="ImgField" Margin="64,0,68,0" TextWrapping="NoWrap" VerticalAlignment="Top" Height="24" UndoLimit="128" VerticalContentAlignment="Center"/>
             <Button x:Name="ImgBrowse" Content="Browse" HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="64" Click="ImgBrowse_Click"/>
         </Grid>
         <Grid x:Name="PathControlOut" VerticalAlignment="Top" Margin="0,28,0,0">
             <Label Content="Output" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="64" FontWeight="Medium" VerticalContentAlignment="Center" AutomationProperties.IsOffscreenBehavior="Default" Padding="5,0,0,0"/>
-            <TextBox x:Name="OutField" Margin="64,0,68,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" UndoLimit="128" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="OutField" Margin="64,0,68,0" TextWrapping="NoWrap" VerticalAlignment="Top" Height="24" UndoLimit="128" VerticalContentAlignment="Center"/>
             <Button x:Name="OutBrowse" Content="Browse" HorizontalAlignment="Right" VerticalAlignment="Top" Height="24" Width="64" Click="OutBrowse_Click"/>
         </Grid>
         <Grid x:Name="Controls" Margin="0,56,0,0">
             <Label Content="Prefab Name" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="80" FontWeight="Medium" VerticalContentAlignment="Center" AutomationProperties.IsOffscreenBehavior="Default" Padding="5,0,0,0"/>
-            <TextBox x:Name="PrefabNameField" HorizontalAlignment="Stretch" Margin="80,0,0,0" Text="Image" TextWrapping="Wrap" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" UndoLimit="128" MaxLines="1"/>
+            <TextBox x:Name="PrefabNameField" HorizontalAlignment="Stretch" Margin="80,0,0,0" Text="Image" TextWrapping="NoWrap" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" UndoLimit="128" MaxLines="1"/>
             <Label Content="Prefab Type" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="80" FontWeight="Medium" VerticalContentAlignment="Center" AutomationProperties.IsOffscreenBehavior="Default" Padding="5,0,0,0" Margin="0,28,0,0"/>
             <ComboBox x:Name="PrefabTypeCombo" HorizontalAlignment="Left" Margin="80,28,0,0" VerticalAlignment="Top" Width="128" Height="24" SelectedIndex="6">
                 <ComboBoxItem Content="Bombs"/>
@@ -33,8 +33,7 @@
                 <ComboBoxItem Content="Misc_3"/>
                 <ComboBoxItem Content="Misc_4"/>
             </ComboBox>
-            <ProgressBar x:Name="ConvertPrg" Height="24" Margin="68,0,0,0" VerticalAlignment="Bottom" VerticalContentAlignment="Top"/>
-            <Button x:Name="ConvertBtn" Content="Convert" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="64" Height="24" Click="ConvertBtn_Click"/>
+            <Button x:Name="ConvertBtn" Content="Convert" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="24" Click="ConvertBtn_Click" Width="64"/>
         </Grid>
 
     </Grid>

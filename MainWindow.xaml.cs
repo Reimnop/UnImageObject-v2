@@ -1,18 +1,11 @@
 ﻿using Microsoft.Win32;
+using PAPrefabToolkit;
+using PAPrefabToolkit.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Drawing;
+using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace UnImageObject_v2
 {
@@ -52,7 +45,42 @@ namespace UnImageObject_v2
 
         private void ConvertBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (!File.Exists(ImgField.Text))
+            {
+                MessageBox.Show("Image does not exist in specified location!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            try
+            {
+                Prefab prefab = new Prefab();
+                prefab.Name = PrefabNameField.Text;
+                prefab.Type = (PrefabType)PrefabTypeCombo.SelectedIndex;
+
+                PrefabObject textObject = new PrefabObject(prefab, PrefabNameField.Text);
+                textObject.AutoKillType = PrefabObjectAutoKillType.Fixed;
+                textObject.AutoKillOffset = 5.0f;
+                textObject.Shape = PrefabObjectShape.Text;
+
+                //load image
+                Bitmap bmp = new Bitmap(ImgField.Text);
+
+                using (ImageConverter converter = new ImageConverter(bmp))
+                {
+                    StringBuilder sb = new StringBuilder();
+                    converter.WriteToStringBuilder(sb);
+
+                    textObject.Text = sb.ToString();
+                }
+
+                //write to output
+                File.WriteAllText(OutField.Text, PrefabBuilder.BuildPrefab(prefab, noValidate: true));
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString(), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
         }
     }
 }
