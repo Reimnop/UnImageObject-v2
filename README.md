@@ -1,2 +1,2 @@
 # UnImage Object v2
- highly optimized image to project arrhythmia utility
+A tool for converting images to Project Arrhythmia prefabs.
